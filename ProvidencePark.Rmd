@@ -1,0 +1,30 @@
+---
+title: "Providence Park"
+author: "Katherine"
+date: "May 7, 2017"
+output: html_document
+---
+
+
+```{r, echo = FALSE}
+library(leaflet)
+PPLatLong <- data.frame(
+	lat = c(45.521794, 45.521313, 45.521946, 45.521811, 45.520773, 45.521700, 45.521298, 45.521511),
+	lng = c(-122.692598, -122.691214, -122.691485, -122.691418, -122.692400, -122.692180, -122.691697, -122.691801))
+
+PPSites <- c("<a href = 'http://www.sportsbusinessdaily.com/Journal/Issues/2016/06/06/People-and-Pop-Culture/Plugged-In.aspx'>Broadcast Booth (+ Suburbia)</a>",
+	"<a href = 'https://www.timbers.com/matchday/keybank-club'>Free Hotdog Section</a>",
+	"<a href = 'https://timbersarmy.org/'>Timbers Army</a>",
+	"<a href = 'https://www.youtube.com/watch?v=TRiKHQKWfxA'>Victory Log</a>",
+	"<a href = 'https://themac.com'>MAC</a>",
+	"<a href = 'http://www.stumptownfooty.com/2016/1/27/10842800/caleb-porter-gets-long-term-contract-extension'>Coach</a>", 
+	"<a href = 'https://www.portlandoregon.gov/bes/article/521409?archive=2015-03'>Tanner Creek</a>",
+	"<a href = 'https://www.timbers.com/post/2017/03/16/fourfourtwo-lists-providence-park-best-stadium-soccer-us'>Providence Park</a>"
+	)
+
+PPLatLong %>%
+	leaflet() %>%
+	addTiles() %>%
+	addMarkers(popup = PPSites)
+```
+
